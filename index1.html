@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>获取随机字符串</title>
+    <style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+
+    .container{
+        width: 50%;
+        margin: 20px auto;
+    }
+
+    li{
+        width: 100%;
+        overflow-wrap: break-word;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <input type="number" value="8" id="str_length">
+            <button onclick="getRandStrs()">点击获取随机字符串</button>
+        </div>
+        <ul id="randStr">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        function getRandStrs(){
+            let strList = document.getElementById('randStr').getElementsByTagName('li');
+            for(let i=0; i<4; i++){
+                strList[i].innerText = getRandStr();
+            }
+        }
+
+        function getRandStr(){
+            let length = document.getElementById('str_length').value;
+            var charList = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            var str = '';
+            length = parseInt(length);
+            for(let i=0; i<length; i++){
+                let randNum = Math.floor(Math.random()*charList.length);
+                str += charList.charAt(randNum);
+            }
+            return str;
+        }
+    </script>
+</body>
+</html>

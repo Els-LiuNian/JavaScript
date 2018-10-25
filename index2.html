@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>获取页面参数</title>
+    <style>
+        body{
+                margin: 0;
+                padding: 0;
+            }
+        
+            .container{
+                width: 50%;
+                margin: 20px auto;
+            }
+        
+            p{
+                width: 100%;
+                overflow-wrap: break-word;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <input type="text" value="username" id="param">
+            <button onclick="getParams()">获取页面参数</button>
+        </div>
+        <p id="randStr"></p>
+    </div>
+    <script>
+        function getParams(){
+            var url = window.location.href;
+            var param = document.getElementById('param').value;
+            var paramList = [];
+            var paramStr = url.split('?')[1];
+            paramStr = paramStr.split('&');
+            for(let i=0; i<paramStr.length; i++){
+                var paramItem = paramStr[i].split('=');
+                if(paramItem[0] === param){
+                    alert(paramItem[1]);
+                    return;    
+                }
+            }
+            alert('未找到该参数');
+        }
+    </script>
+</body>
+
+</html>
