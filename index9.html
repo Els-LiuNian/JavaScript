@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取所有子元素</title>
+</head>
+<body>
+    <ul id="app">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <!-- 123 -->
+    </ul>
+</body>
+<script>
+    var oApp = document.getElementById('app');
+    var childs = oApp.childNodes;
+    console.log(childs);
+    console.log('-------------------------------------------------');
+    console.log(oApp.children);
+    console.log('-------------------------------------------------');
+    console.log(getChildren('app'));
+
+    function getChildren(ele){
+        var obj = document.getElementById(ele);
+        var nodes = obj.childNodes;
+        var list = [];
+        for(var i=0; i<nodes.length; i++){
+            if(nodes[i].nodeType == 1){
+                list.push(nodes[i]);
+            }
+        }
+        return list;
+    }
+</script>
+</html>

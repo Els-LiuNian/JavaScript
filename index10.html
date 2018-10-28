@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取第一个子元素</title>
+</head>
+<body>
+    <ul id="app">
+        <li>first</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>last</li>
+    </ul>
+</body>
+<script>
+function first(ele){
+    var app = document.getElementById(ele);
+    var obj = app.firstChild;
+    while(obj.nodeType != 1){
+        obj = obj.nextSibling;
+    }
+    return obj;
+}
+console.log(first('app'))
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取所有兄弟元素</title>
+</head>
+<body>
+    <ul class="container">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <!-- 123 -->
+        <li id="obj">4</li>
+        <!-- 123 -->
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+</body>
+
+<script>
+function siblings(ele){
+    var obj = document.getElementById(ele);
+    var nodes = obj.parentNode.childNodes;
+    var list = [];
+    for(var i=0; i<nodes.length; i++){
+        if(nodes[i].nodeType == 1 && nodes[i].id != ele){
+            list.push(nodes[i]);
+        }
+    }
+    return list;
+}
+console.log(siblings('obj'));
+</script>
+</html>

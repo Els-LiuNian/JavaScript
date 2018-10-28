@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=获取所有弟弟元素, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取所有哥哥元素</title>
+</head>
+<body>
+    <ul id="app">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <!-- 123 -->
+        <li id="obj">4</li>
+        <!-- 123 -->
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+</body>
+<script>
+function index(el){
+    var obj = document.getElementById(el);
+    var num = 0;
+    while(obj.previousSibling != null){
+        obj = obj.previousSibling;
+        if(obj.nodeType == 1){
+            num++;
+        }
+    }
+    return num;
+}
+
+console.log('这个元素的索引值是' + index('obj'));
+</script>
+</html>

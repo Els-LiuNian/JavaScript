@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>equal</title>
+</head>
+<body>
+    <ul id="container">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+function eq(parent, index){
+    var oParent = document.getElementById(parent);
+    var childs = oParent.childNodes
+    var list = [];
+    for(var i=0; i<childs.length; i++){
+        if(childs[i].nodeType == 1){
+            list.push(childs[i]);
+        }
+    }
+    return list[index] || '不存在';
+}
+
+console.log(eq('container', 3));
+</script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航切换</title>
+    <style>
+    body, li, ul{
+        margin: 0;
+        padding: 0;
+    }
+
+    li, ul{
+        list-style: none;
+    }
+
+    .container{
+        width: 300px;
+        height: 200px;
+        border: 1px solid #999;
+        margin: 20px auto;
+        position: relative;
+    }
+
+    .nav{
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        background-color: #666;
+        color: #fff;
+        font-size: 16px;
+        overflow: hidden;
+    }
+
+    .nav li{
+        width: 70px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+        color: #fff;
+        text-align: center;
+        float: left;
+        cursor: pointer;
+        border-right: 1px solid #bbb;       
+    }
+
+    .nav .checked{
+        background-color: #333;
+    }
+
+    .content li{
+        height: 160px;
+        background-color: #f31;
+        color: #fff;
+        font-size: 40px;
+        line-height: 2em;
+        display: none;
+    }
+
+    .content .checked{
+        display: block;
+    }
+
+    .nav-index{
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 10px;
+        top: -8px;
+        right: -8px;
+        background: #fff;
+        border: 1px solid red;
+    }
+    </style>
+</head>
+<body>
+    <button onclick="cloneEle()">复制一个</button>
+    <div class="container" id="app1">
+        <div class="nav-index">1</div>
+        <ul class="nav">
+            <li>栏目</li>
+            <li>栏目</li>
+            <li>栏目</li>
+        </ul>
+        <ul class="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <div class="container" id="app2">
+        <div class="nav-index">2</div>
+        <ul class="nav">
+            <li>栏目</li>
+            <li>栏目</li>
+            <li>栏目</li>
+        </ul>
+        <ul class="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+</body>
+<script src="index2.js"></script>
+</html>
