@@ -1,22 +1,28 @@
-var jquery = function(ele) {
-    var obj = document.getElementById(ele);
-    var list = [];
+var lib = function(ele) {
+	var obj = document.getElementById(ele);
 	return {
 		next: function() {
+			var obj = document.getElementById(ele);
+			if(!obj.nextSibling) return null;
 			while (obj.nextSibling.nodeType != 1) {
 				obj = obj.nextSibling;
 			}
 			return obj.nextSibling;
 		},
-
+		
 		prev: function() {
+			var obj = document.getElementById(ele);
+			if(!obj.previousSibling) return null;
 			while (obj.previousSibling.nodeType != 1) {
 				obj = obj.previousSibling;
 			}
 			return obj.previousSibling;
 		},
-
+		
 		nextAll: function() {
+			var list = [];
+			var obj = document.getElementById(ele);
+			if(!obj.nextSibling) return null;
 			while (obj.nextSibling != null) {
 				obj = obj.nextSibling;
 				if (obj.nodeType == 1) {
@@ -25,8 +31,11 @@ var jquery = function(ele) {
 			}
 			return list;
 		},
-
+		
 		prevAll: function() {
+			var list = [];
+			var obj = document.getElementById(ele);
+			if(!obj.previousSibling) return null;
 			while (obj.previousSibling != null) {
 				obj = obj.previousSibling;
 				if (obj.nodeType == 1) {
@@ -35,7 +44,7 @@ var jquery = function(ele) {
 			}
 			return list;
 		},
-
+		
 		index: function() {
 			var index = 0;
 			while (obj.previousSibling != null) {
@@ -70,7 +79,7 @@ var jquery = function(ele) {
 		},
 
 		first: function() {
-            var firstObj = obj.firstChild;
+			var firstObj = obj.firstChild;
 			while (firstObj.nodeType != 1) {
 				firstObj = firstObj.nextSibling;
 			}
@@ -86,18 +95,18 @@ var jquery = function(ele) {
 		},
 
 		eq: function(index) {
-			return this.children()[index] || '选取的元素不存在';
+			return this.children()[index] || null;
 		},
 
 		classList: function() {
-			return obj.className.split(' ');
-        },
-        
-        append: function(newEle) {
-            obj.appendChild(typeof newEle=='string' ? document.createTextNode(newEle) : newEle);
-        }
+			var classNames = obj.className.split(' ');
+			return classNames[0] ? classNames : null;
+		},
+
+		append: function(newEle) {
+			obj.appendChild(typeof newEle == 'string' ? document.createTextNode(newEle) : newEle);
+		}
 	};
 };
 
-
-var $ = jquery;
+var $ = lib;
