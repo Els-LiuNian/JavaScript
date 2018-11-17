@@ -74,26 +74,15 @@
         background: #fff;
         border: 1px solid red;
     }
+    #app{
+        display: none;
+    }
     </style>
 </head>
 <body>
-    <button onclick="cloneEle()">复制一个</button>
-    <div class="container" id="app1">
-        <div class="nav-index">1</div>
-        <ul class="nav">
-            <li>栏目</li>
-            <li>栏目</li>
-            <li>栏目</li>
-        </ul>
-        <ul class="content">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    </div>
-
-    <div class="container" id="app2">
-        <div class="nav-index" >2</div>
+    <button id="copy-btn">创 建</button>
+    <div class="container" id="app">
+        <div class="nav-index"></div>
         <ul class="nav">
             <li>栏目</li>
             <li>栏目</li>

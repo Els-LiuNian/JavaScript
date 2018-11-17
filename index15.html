@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>多级菜单</title>
+    <style>
+    body, ul, li{
+        margin: 0;
+        padding: 0;
+    }
+    ul, li{
+        list-style: none;
+    }
+    .clearfix{ 
+        *zoom: 1; 
+    }
+    .clearfix:after{
+        height: 0;
+        display: block;
+        clear: both;
+        content: '';
+    }
+
+    .nav{
+        height: 50px;
+        background-color: #333;
+        padding-left: 120px;
+    }
+
+    .nav a{
+        text-decoration: none;
+        color: #fff;
+        line-height: 50px;
+        font-size: 16px;
+    }
+
+    .nav-li,
+    .child-li{
+        cursor: pointer;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        width: 150px;
+    }
+
+    .nav-li{
+        float: left;
+        width: 100px;
+    }
+
+    .nav-li:hover,
+    .child-li:hover{
+        background-color: #666;
+    }
+
+    .nav-li:hover>.child-nav,
+    .child-li:hover>.child-nav{
+        display: block;
+    }
+
+    .child-nav{
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #333;
+        display: none;
+    }
+
+    .child-li .child-nav{
+        top: 4px;
+        left: 150px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav clearfix" id="nav"></ul>
+        <p style="height: 300px; line-height: 300px;">----------------</p>
+        <ul class="nav clearfix" id="nav2"></ul>
+        <p style="height: 300px; line-height: 300px;">---------------</p>
+    </div>
+    <script src="./js/index15.js"></script>
+</body>
+</html>

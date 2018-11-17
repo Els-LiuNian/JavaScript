@@ -1,3 +1,11 @@
+'use strict';
+
+var num = 1;
+cloneEle();
+cloneEle();
+var oBtn = document.getElementById('copy-btn');
+oBtn.onclick = function() { cloneEle(); };
+
 function navSelect(id){
     var container = document.getElementById(id);
     var nav = container.getElementsByClassName('nav')[0];
@@ -14,31 +22,17 @@ function navSelect(id){
         }
     }
     delBtn.onclick = function(){
-        if(container.id == 'app1'){
-            return
-        }
         this.parentNode.parentNode.removeChild(this.parentNode);
     }
 }
 
-
-var num = 3;
 function cloneEle(){
-    var app1 = document.getElementById('app1');
-    var a = app1.cloneNode(true);
+    var app = document.getElementById('app');
+    var a = app.cloneNode(true);
     a.id = 'app' + num;
+    a.style.display = 'block';
     a.getElementsByClassName('nav-index')[0].innerHTML = num;
-    // a.getElementsByClassName('nav-index')[0].onclick = function(){
-    //     this.parentNode.parentNode.removeChild(this.parentNode);
-    // }
-    app1.parentNode.appendChild(a);
+    app.parentNode.appendChild(a);
     navSelect(a.id);
     num++;
 }
-
-function deleteEle(){
-    console.log(this);
-}
-
-navSelect('app1');
-navSelect('app2');

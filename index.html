@@ -14,13 +14,15 @@
 
     ul, li{
         list-style: none;
-        padding: 0 20px;
         font-size: 18px;
         line-height: 40px;
     }
 
     li {
+        width: 310px;
         height: 40px;
+        padding: 0 20px;
+        float: left;
     }
 
     a{
@@ -36,6 +38,7 @@
     .container{
         width: 700px;
         margin: 20px auto;
+        overflow: hidden;
     }
 
     .row-blue{
@@ -71,6 +74,9 @@
         <li><a href="./index12.html">equal 获取最后一个子元素</a></li>
         <li><a href="./index13.html">DOM库 生成一个dom库</a></li>
         <li><a href="./index14.html">tab切换 tab切换导航</a></li>
+        <li><a href="./index15.html">多级导航</a></li>
+        <li><a href="./index16.html">javascript深拷贝-来自百度</a></li>
+        <li><a href="./js/index1.js">javascript深拷贝</a></li>
     </ul>
 </body>
 
@@ -78,7 +84,9 @@
     var app = document.getElementById('app');
     var list = app.getElementsByTagName('li');
     for(let i=0; i<list.length; i++){
-        let num = i%4;
+        var a = list[i].getElementsByTagName('a')[0];
+        a.innerText = (i+1) + '. ' + a.innerText;
+        let num = i%3;
         switch (num){
             case 0:
                 list[i].className = 'row-blue';
